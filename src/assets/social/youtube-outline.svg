@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <path
+    stroke="#ffffff"
+    stroke-width="14"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M96 180v152c0 36 28 64 64 64h192c36 0 64-28 64-64V180c0-36-28-64-64-64H160c-36 0-64 28-64 64z" />
+  <path
+    stroke="#ffffff"
+    stroke-width="14"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M216 196l104 60-104 60v-120z" />
+</svg>

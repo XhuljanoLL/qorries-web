@@ -1,61 +1,89 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { styles } from '../styles';
 
-/** Hero background: place an MP4 at `public/hero-bg.mp4` (filename documented in `public/hero-video-readme.txt`). */
-const HERO_VIDEO_SRC = '/hero-bg.mp4';
+/** Hero background videos.
+ *  Desktop : public/hero-bg.mp4
+ *  Mobile  : public/hero-bg-mobile.mp4  (portrait / square ratio recommended)
+ */
+const HERO_VIDEO_DESKTOP = '/hero-bg.mp4';
+const HERO_VIDEO_MOBILE  = '/hero-bg-mobile.mp4';
+
+const SCROLL_CTA_THRESHOLD_PX = 48;
 
 const Hero = () => {
   const heroRef = useRef(null);
+  const [showScrollCta, setShowScrollCta] = useState(true);
+
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ['start start', 'end start'],
   });
-  const backdropFade = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
+  const backdropFade = useTransform(
+    scrollYProgress,
+    [0, 0.35, 0.58],
+    [1, 0.45, 0],
+  );
+
+  useEffect(() => {
+    const onScroll = () => setShowScrollCta(window.scrollY < SCROLL_CTA_THRESHOLD_PX);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <div ref={heroRef} className="relative h-screen">
-      <div className="absolute top-0 left-0 z-0 h-full w-screen overflow-hidden">
+    <div
+      ref={heroRef}
+      className="relative flex min-h-screen w-full flex-col">
+      <div className="absolute inset-0 z-0 min-h-[100svh] overflow-hidden">
+        {/* Desktop video */}
         <motion.video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 z-0 h-full min-h-[100svh] w-full object-cover hidden sm:block"
           style={{ opacity: backdropFade }}
-          src={HERO_VIDEO_SRC}
+          src={HERO_VIDEO_DESKTOP}
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+        {/* Mobile video */}
+        <motion.video
+          className="absolute inset-0 z-0 h-full min-h-[100svh] w-full object-cover sm:hidden"
+          style={{ opacity: backdropFade }}
+          src={HERO_VIDEO_MOBILE}
           autoPlay
           muted
           loop
           playsInline
         />
         <motion.div
-          className="absolute inset-0 bg-black/40"
+          className="absolute inset-0 z-0 min-h-[100svh] bg-black/40"
           style={{ opacity: backdropFade }}
           aria-hidden
         />
       </div>
       <section
-        className="relative z-[1] flex sm:flex-row flex-col w-full h-screen mx-auto 
-        overflow-hidden">
+        className="relative z-[1] flex min-h-0 flex-1 flex-col w-full mx-auto overflow-hidden sm:flex-row">
         <div
-          className={`absolute inset-0 sm:top-[250px] top-[150px] 
-          lg:top-[150px] xl:top-[250px] ${styles.paddingX} 
+          className={`absolute inset-0 top-[52%] sm:top-[400px]
+          lg:top-[440px] xl:top-[500px] ${styles.paddingX} 
           max-w-7xl mx-auto flex flex-row items-start
           justify-between gap-3`}>
-          <div className="flex flex-col justify-center items-center mt-5 ml-3">
-            <div className="w-5 h-5 rounded-full bg-[#0a0a0a] sm:hidden" />
-            <div className="w-1 sm:h-80 h-40 bw-gradient sm:hidden" />
-          </div>
+          <div className="flex flex-col justify-center items-center mt-5 ml-3"></div>
 
           <div>
             <h1
               className={`${styles.heroHeadText} text-eerieBlack font-poppins uppercase`}>
               <span
-                className="block sm:text-battleGray sm:text-[90px] 
-                text-eerieBlack text-[50px] font-mova
+                className="block sm:text-battleGray sm:text-[112px] leading-none
+                text-battleGray text-[58px] font-mova
                 font-extrabold uppercase">
                 Genald
               </span>
               <span
-                className="block sm:text-battleGray sm:text-[90px] 
-                text-eerieBlack text-[50px] font-mova
+                className="block sm:text-battleGray sm:text-[112px] leading-none
+                text-battleGray text-[58px] font-mova
                 font-extrabold uppercase">
                 Komino
               </span>
@@ -68,28 +96,33 @@ const Hero = () => {
           <div></div>
         </div>
 
-        <div
-          className="absolute xs:bottom-10 bottom-32 w-full z-[2]
-          flex justify-center items-center">
+        <motion.div
+          className="absolute xs:bottom-10 bottom-32 z-[2] flex w-full justify-center items-center"
+          initial={false}
+          animate={{
+            opacity: showScrollCta ? 1 : 0,
+          }}
+          transition={{ duration: 0.25 }}
+          style={{ pointerEvents: showScrollCta ? 'auto' : 'none' }}>
           <a href="#about">
             <div
-              className="w-[35px] h-[64px] rounded-3xl border-4 
+              className="w-[24px] h-[44px] rounded-3xl border-[3px]
             border-french border-dim flex
-            justify-center items-start p-2">
+            justify-center items-start p-1.5">
               <motion.div
                 animate={{
-                  y: [0, 24, 0],
+                  y: [0, 16, 0],
                 }}
                 transition={{
                   duration: 1.5,
                   repeat: Infinity,
                   repeatType: 'loop',
                 }}
-                className="w-3 h-3 rounded-full bg-taupe mb-1"
+                className="w-2 h-2 rounded-full bg-taupe mb-1"
               />
             </div>
           </a>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

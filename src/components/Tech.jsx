@@ -15,19 +15,24 @@ const Tech = () => {
 
       <div className="mt-14 flex flex-wrap justify-center gap-10 md:gap-14">
         {socialLinks.map(({ name, href, icon }) => (
-          <motion.a
+          <motion.div
             key={name}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={name}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-block rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-platinum focus-visible:ring-offset-2 focus-visible:ring-offset-eerieBlack">
-            <div className="h-28 w-28 [&_canvas]:pointer-events-none">
-              <BallCanvas icon={icon} />
+            className="inline-block touch-none rounded-full focus-within:outline-none focus-visible:ring-2 focus-visible:ring-platinum focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]">
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sr-only">
+              {name}
+            </a>
+            <div
+              className="h-28 w-28 cursor-grab overflow-hidden rounded-full active:cursor-grabbing"
+              aria-hidden>
+              <BallCanvas icon={icon} href={href} />
             </div>
-          </motion.a>
+          </motion.div>
         ))}
       </div>
     </>

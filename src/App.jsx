@@ -2,6 +2,7 @@ import { BrowserRouter } from 'react-router-dom';
 import {
   About,
   Contact,
+  Footer,
   Hero,
   Navbar,
   Tech,
@@ -15,8 +16,9 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="relative z-0">
-        <Navbar />
-        <div className="relative z-[1]">
+        {/* Above grain bed: fixed full-viewport layers in the next sibling would cover the hero if z-index ties — keep hero/nav on top. */}
+        <div className="relative z-[1] min-h-screen">
+          <Navbar />
           <Hero />
         </div>
 
@@ -38,21 +40,15 @@ const App = () => {
           />
           {/* z-0: above grain via DOM order; keep below Navbar (root-level z-50) */}
           <div className="relative z-0">
-            <div className="bg-flashWhite/72">
-              <About />
-            </div>
+            <About />
 
-            <div className="bg-black/45 pb-10">
-              <Tech />
-            </div>
+            <Tech />
 
-            <div className="bg-black/35">
-              <Projects />
-            </div>
+            <Projects />
 
-            <div className="bg-black/35 pb-16">
-              <Contact />
-            </div>
+            <Contact />
+
+            <Footer />
           </div>
         </div>
       </div>

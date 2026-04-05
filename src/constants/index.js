@@ -7,13 +7,14 @@ import {
   movie,
   nyeusi,
   whatsapp,
+  youtube,
 } from '../assets';
 import {
-  FaCamera,
-  FaVideo,
-  FaClapperboard,
-  FaCirclePlay,
-} from 'react-icons/fa6';
+  HiOutlineCamera,
+  HiOutlineVideoCamera,
+  HiOutlineFilm,
+  HiOutlinePlayCircle,
+} from 'react-icons/hi2';
 
 export const navLinks = [
   {
@@ -33,19 +34,19 @@ export const navLinks = [
 const services = [
   {
     title: 'Photography',
-    Icon: FaCamera,
+    Icon: HiOutlineCamera,
   },
   {
     title: 'Video',
-    Icon: FaVideo,
+    Icon: HiOutlineVideoCamera,
   },
   {
     title: 'Film making',
-    Icon: FaClapperboard,
+    Icon: HiOutlineFilm,
   },
   {
     title: 'Videoclips',
-    Icon: FaCirclePlay,
+    Icon: HiOutlinePlayCircle,
   },
 ];
 
@@ -64,6 +65,11 @@ const socialLinks = [
     name: 'Behance',
     href: 'https://www.behance.net/yourprofile',
     icon: behance,
+  },
+  {
+    name: 'YouTube',
+    href: 'https://www.youtube.com/@yourchannel',
+    icon: youtube,
   },
 ];
 

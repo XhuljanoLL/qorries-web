@@ -9,19 +9,11 @@ const ServiceCard = ({ index, title, Icon }) => {
   return (
     <motion.div
       variants={fadeIn('right', 'spring', 0.5 * index, 0.75)}
-      className="xs:w-[250px] w-full card-gradient p-[1px] rounded-[20px] shadow-card">
-      <div
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className="bg-jetLight rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
-        <Icon className="w-16 h-16 text-taupe" aria-hidden />
-        <h3 className="text-taupe text-[18px] font-bold text-center">
-          {title}
-        </h3>
-      </div>
+      className="xs:w-[250px] w-full rounded-[20px] border border-platinum/20 py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
+      <Icon className="h-16 w-16 text-taupe" aria-hidden />
+      <h3 className="text-center text-[18px] font-bold text-silver">
+        {title}
+      </h3>
     </motion.div>
   );
 };
@@ -30,13 +22,13 @@ const About = () => {
   return (
     <div className="-mt-[6rem]">
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+        <p className={styles.sectionSubTextLight}>Introduction</p>
+        <h2 className={styles.sectionHeadTextLight}>Overview.</h2>
       </motion.div>
 
       <motion.p
         variants={fadeIn('', '', 0.1, 1)}
-        className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
+        className="mt-4 max-w-3xl text-[18px] leading-[30px] text-timberWolf">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis
         sapiente ipsum dolorum dicta eaque cumque inventore molestias, beatae ea
         quaerat alias accusamus voluptas autem! Alias odit voluptates in totam

@@ -12,9 +12,10 @@ import resume from './icons/resume.png';
 import send from './icons/send.png';
 import sendHover from './icons/sendHover.png';
 
-import whatsapp from './social/whatsapp.png';
-import instagram from './social/instagram.png';
-import behance from './social/behance.png';
+import whatsapp from './social/whatsapp-outline.svg';
+import instagram from './social/instagram-outline.svg';
+import behance from './social/behance-outline.svg';
+import youtube from './social/youtube-outline.svg';
 
 import komikult from './projects/komikult.png';
 import leaderboard from './projects/leaderboard.png';
@@ -28,6 +29,7 @@ export {
   whatsapp,
   instagram,
   behance,
+  youtube,
   github,
   close,
   download,

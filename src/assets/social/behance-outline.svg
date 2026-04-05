@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- B: stem + two bowls; ē: macron + e -->
+  <path
+    stroke="#ffffff"
+    stroke-width="16"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M72 88 L72 424" />
+  <path
+    stroke="#ffffff"
+    stroke-width="16"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M72 88 L200 88 Q272 88 272 152 Q272 208 200 208 L72 208" />
+  <path
+    stroke="#ffffff"
+    stroke-width="16"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M72 208 L212 208 Q292 208 292 292 Q292 376 212 376 L72 376" />
+  <path
+    stroke="#ffffff"
+    stroke-width="14"
+    stroke-linecap="round"
+    d="M336 96 L464 96" />
+  <path
+    stroke="#ffffff"
+    stroke-width="16"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M400 224 C352 224 320 256 320 300 C320 344 352 376 400 376 C428 376 452 360 464 336" />
+  <path
+    stroke="#ffffff"
+    stroke-width="16"
+    stroke-linecap="round"
+    d="M320 300 L368 300" />
+</svg>
