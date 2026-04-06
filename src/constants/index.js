@@ -8,13 +8,14 @@ import {
   i_hate_models,
   whatsapp,
   youtube,
+  director,
+  colour_tuneing,
+  video_editing,
+  movie_camera
 } from '../assets';
-import {
-  HiOutlineCamera,
-  HiOutlineVideoCamera,
-  HiOutlineFilm,
-  HiOutlinePlayCircle,
-} from 'react-icons/hi2';
+// import {
+//   HiOutlineVideoCamera,
+// } from 'react-icons/hi2';
 
 export const navLinks = [
   {
@@ -33,20 +34,20 @@ export const navLinks = [
 
 const services = [
   {
-    title: 'Photography',
-    Icon: HiOutlineCamera,
+    title: 'Directing',
+    Icon: director,
   },
   {
-    title: 'Video',
-    Icon: HiOutlineVideoCamera,
+    title: 'Filming',
+    Icon: movie_camera,
   },
   {
-    title: 'Film making',
-    Icon: HiOutlineFilm,
+    title: 'Editing',
+    Icon: video_editing,
   },
   {
-    title: 'Videoclips',
-    Icon: HiOutlinePlayCircle,
+    title: 'Color Grading',
+    Icon: colour_tuneing,
   },
 ];
 
