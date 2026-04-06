@@ -96,7 +96,7 @@ const Hero = () => {
           <div></div>
         </div>
 
-        <motion.div
+        {/* <motion.div
           className="absolute xs:bottom-10 bottom-32 z-[2] flex w-full justify-center items-center"
           initial={false}
           animate={{
@@ -122,7 +122,7 @@ const Hero = () => {
               />
             </div>
           </a>
-        </motion.div>
+        </motion.div> */}
       </section>
     </div>
   );

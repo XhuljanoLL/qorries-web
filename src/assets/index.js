@@ -17,11 +17,11 @@ import instagram from './social/instagram-outline.svg';
 import behance from './social/behance-outline.svg';
 import youtube from './social/youtube-outline.svg';
 
-import komikult from './projects/komikult.png';
-import leaderboard from './projects/leaderboard.png';
-import math from './projects/math-magicians.png';
-import movie from './projects/movie-metro.png';
-import nyeusi from './projects/nyeusi.png';
+import taste_bugs from './projects/taste_bugs.jpeg';
+import maybe_love from './projects/maybe_love.PNG';
+import is_this_who_i_am from './projects/is_this_who_i_am_2.PNG';
+import mellow_ma_deine_augen from './projects/mellow_ma-deine_augen.png';
+import i_hate_models from './projects/i_hate_models_2.png';
 
 export {
   logo,
@@ -40,9 +40,9 @@ export {
   resume,
   send,
   sendHover,
-  komikult,
-  leaderboard,
-  math,
-  movie,
-  nyeusi,
+  taste_bugs,
+  maybe_love,
+  is_this_who_i_am,
+  mellow_ma_deine_augen,
+  i_hate_models,
 };

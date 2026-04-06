@@ -29,12 +29,17 @@ const About = () => {
       <motion.p
         variants={fadeIn('', '', 0.1, 1)}
         className="mt-4 max-w-3xl text-[18px] leading-[30px] text-timberWolf">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis
-        sapiente ipsum dolorum dicta eaque cumque inventore molestias, beatae ea
-        quaerat alias accusamus voluptas autem! Alias odit voluptates in totam
-        vitae dignissimos minus eaque culpa unde tempore dolore aperiam
-        obcaecati voluptatum aliquam corrupti, suscipit accusamus! Odit unde
-        veniam dolorum ipsum doloribus.
+        Based in Berlin, I am a professional photographer, filmmaker, 
+        and videographer specializing in cinematic videos, music video production, 
+        and creative video content. From concept to final cut, every shot is crafted 
+        to engage audiences, capture emotion, and tell compelling visual stories. 
+        I work with brands, artists, and creators to produce high-quality commercial videos, 
+        promotional films, and unforgettable music videos. With expertise in videography, 
+        video editing, and cinematic direction, each project is designed to connect 
+        with viewers and leave a lasting impact. Whether it’s a brand campaign, 
+        event coverage, or artistic project, my Berlin-based video production services 
+        bring ideas to life. Partner with me for professional photography and video 
+        content that elevates your vision and reaches your audience.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">
