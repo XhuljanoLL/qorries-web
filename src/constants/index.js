@@ -11,7 +11,8 @@ import {
   director,
   colour_tuneing,
   video_editing,
-  movie_camera
+  movie_camera,
+  email
 } from '../assets';
 // import {
 //   HiOutlineVideoCamera,
@@ -54,23 +55,28 @@ const services = [
 const socialLinks = [
   {
     name: 'WhatsApp',
-    href: 'https://wa.me/0000000000',
+    href: 'https://wa.link/amkbjm',
     icon: whatsapp,
   },
   {
     name: 'Instagram',
-    href: 'https://www.instagram.com/yourusername/',
+    href: 'https://www.instagram.com/paraclituspictures/',
     icon: instagram,
   },
   {
     name: 'Behance',
-    href: 'https://www.behance.net/yourprofile',
+    href: 'https://www.behance.net/genaldkominofilm',
     icon: behance,
   },
   {
     name: 'YouTube',
-    href: 'https://www.youtube.com/@yourchannel',
+    href: 'https://www.youtube.com/@GenaldK',
     icon: youtube,
+  },
+  {
+    name: 'Email',
+    href: 'mailto:genaldfilm@gmail.com',
+    icon: email,
   },
 ];
 

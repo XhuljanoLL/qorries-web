@@ -12,13 +12,13 @@ const Footer = () => {
           <img
             src={logo}
             alt="logo"
-            className="w-[32px] h-[32px] object-contain"
+            className="w-[80px] h-[80px] object-contain"
           />
-          <img
+          {/* <img
             src={logotext}
             alt="logo text"
             className="w-[58px] h-[58px] -ml-[0.4rem] object-contain"
-          />
+          /> */}
         </Link>
 
         <p className="text-taupe text-[13px] font-poppins tracking-wider">

@@ -92,11 +92,11 @@
   font-weight: 700;
 }
 
-.hash-span {
+/* .hash-span {
   margin-top: -100px;
   padding-bottom: 100px;
   display: block;
-}
+} */
 
 .glassmorphism {
   background: rgba(20, 20, 20, 0.7);

@@ -22,16 +22,16 @@ const Navbar = () => {
           <img
             src={logo} // your logo comes here
             alt="logo"
-            className="sm:w-[42px] sm:h-[42px] w-[38px] h-[38px] object-contain"
+            className="sm:w-[80px] sm:h-[80px] w-[70px] h-[70px] object-contain"
           />
 
           {/* if you have text you want besides your logo it comes here.
           Otherwise delete this if you don't need it. */}
-          <img
+          {/* <img
             src={logotext}
             alt="logo"
             className="sm:w-[72px] sm:h-[72px] w-[68px] h-[68px] -ml-[0.5rem] object-contain"
-          />
+          /> */}
         </Link>
         <ul className="list-none hidden sm:flex flex-row gap-10 items-center">
           {navLinks.map((nav) => (
