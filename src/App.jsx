@@ -1,4 +1,3 @@
-// src/App.jsx
 import { BrowserRouter } from 'react-router-dom';
 import {
   About,
@@ -10,7 +9,6 @@ import {
   Projects,
 } from './components';
 
-/** Post-hero grain bed video */
 const GRAIN_VIDEO_SRC = '/grain-bg.mp4';
 
 const App = () => {
