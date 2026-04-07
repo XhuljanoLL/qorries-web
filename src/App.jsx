@@ -1,3 +1,4 @@
+// src/App.jsx
 import { BrowserRouter } from 'react-router-dom';
 import {
   About,
@@ -9,19 +10,23 @@ import {
   Projects,
 } from './components';
 
-/** Post-hero grain bed: replace the file at `public/grain-bg.mp4` (see `public/grain-bg-readme.txt`). */
+/** Post-hero grain bed video */
 const GRAIN_VIDEO_SRC = '/grain-bg.mp4';
 
 const App = () => {
   return (
     <BrowserRouter>
       <div className="relative z-0">
-        {/* Above grain bed: fixed full-viewport layers in the next sibling would cover the hero if z-index ties — keep hero/nav on top. */}
+        {/* ===== HERO & NAV ===== */}
         <div className="relative z-[1] min-h-screen">
           <Navbar />
           <Hero />
+
+          {/* H1 for SEO, visually hidden */}
+          <h1 className="sr-only">Genald – Filmmaker Portfolio</h1>
         </div>
 
+        {/* ===== BACKGROUND LAYERS ===== */}
         <div className="relative z-0">
           <div
             className="pointer-events-none fixed inset-0 z-0 bg-[#0a0a0a]"
@@ -38,14 +43,23 @@ const App = () => {
               e.currentTarget.style.display = 'none';
             }}
           />
-          {/* z-0: above grain via DOM order; keep below Navbar (root-level z-50) */}
+
+          {/* ===== PAGE CONTENT ===== */}
           <div className="relative z-0">
+            {/* H2 for About section */}
+            <h2 className="sr-only">About</h2>
             <About />
 
+            {/* H2 for Projects section */}
+            <h2 className="sr-only">Projects</h2>
             <Projects />
 
+            {/* H2 for Tech section */}
+            <h2 className="sr-only">Tech</h2>
             <Tech />
 
+            {/* H2 for Contact section */}
+            <h2 className="sr-only">Contact</h2>
             <Contact />
 
             <Footer />
