@@ -42,9 +42,9 @@ const App = () => {
           <div className="relative z-0">
             <About />
 
-            <Tech />
-
             <Projects />
+
+            <Tech />
 
             <Contact />
 

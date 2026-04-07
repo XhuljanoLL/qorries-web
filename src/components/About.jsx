@@ -7,7 +7,7 @@ import { SectionWrapper } from '../hoc';
 
 /**
  * Sparkle Component
- * Creates a classic 80s-style 4-pointed star twinkle.
+ * Creates the classic 80s-style 4-pointed star twinkle.
  */
 const Sparkle = ({ delay, left, top, size }) => (
   <motion.div
@@ -22,7 +22,7 @@ const Sparkle = ({ delay, left, top, size }) => (
     transition={{
       duration: 1.5,
       repeat: Infinity,
-      repeatDelay: Math.random() * 4 + 2, // Random wait between sparkles
+      repeatDelay: Math.random() * 4 + 2,
       delay: delay,
       ease: "easeInOut",
     }}
@@ -37,14 +37,16 @@ const Sparkle = ({ delay, left, top, size }) => (
         clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' 
       }} 
     />
-    {/* Cross-hair flares for that 80s look */}
+    {/* Cross-hair flares */}
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[1px] bg-white opacity-50" />
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[200%] w-[1px] bg-white opacity-50" />
   </motion.div>
 );
 
 const HighlightLink = ({ children, href }) => {
-  // We only need a few sparkles to keep it subtle
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
   const sparkleConfigs = [
     { id: 1, delay: 0, left: 10, top: 20, size: '8px' },
     { id: 2, delay: 2, left: 50, top: 10, size: '6px' },
@@ -52,15 +54,39 @@ const HighlightLink = ({ children, href }) => {
     { id: 4, delay: 1, left: 30, top: 70, size: '5px' },
   ];
 
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
   return (
     <motion.a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       className="relative inline-block font-black text-[22px] text-white cursor-pointer px-1 group"
-      whileHover={{ scale: 1.05 }}
     >
-      <span className="relative z-10">{children}</span>
+      <span 
+        className="relative z-10"
+        style={{
+          // Spotlight effect using Light Gray (#2a2a2a)
+          backgroundImage: isHovered 
+            ? `radial-gradient(circle 50px at ${mousePos.x}px ${mousePos.y}px, #2a2a2a 0%, white 100%)` 
+            : 'none',
+          WebkitBackgroundClip: isHovered ? 'text' : 'unset',
+          WebkitTextFillColor: isHovered ? 'transparent' : 'white',
+          display: 'inline-block',
+          transition: 'background-image 0.1s ease', // Subtle smoothing for mouse movement
+        }}
+      >
+        {children}
+      </span>
       
       {/* Sparkle Overlay */}
       <div className="absolute inset-0 pointer-events-none overflow-visible">
