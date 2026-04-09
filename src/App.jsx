@@ -9,7 +9,7 @@ import {
   Projects,
 } from './components';
 
-const GRAIN_VIDEO_SRC = '/grain-bg.mp4';
+const GRAIN_VIDEO_SRC = '/grain-bg.webm';
 
 const App = () => {
   return (
