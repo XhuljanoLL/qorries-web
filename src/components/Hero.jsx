@@ -12,7 +12,7 @@ const Hero = () => {
   const wasInViewRef = useRef(true);
   const savedTimeRef = useRef(0);
 
-  const [showScrollCta, setShowScrollCta] = useState(true);
+  const [setShowScrollCta] = useState(true);
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -81,7 +81,7 @@ const Hero = () => {
 
         setShowScrollCta(window.scrollY < 48);
 
-        // Hero fully left the viewport: pause and remember the time.
+        // Hero fully left the view: pause and remember the time.
         if (!isInView && wasInViewRef.current) {
           pauseAndSaveTime(activeVideo);
         }

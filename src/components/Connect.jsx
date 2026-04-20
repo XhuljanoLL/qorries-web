@@ -5,7 +5,7 @@ import { socialLinks } from '../constants';
 import { styles } from '../styles';
 import { textVariant } from '../utils/motion';
 
-const Tech = () => {
+const Connect = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -39,4 +39,4 @@ const Tech = () => {
   );
 };
 
-export default SectionWrapper(Tech, 'connect');
+export default SectionWrapper(Connect, 'connect');

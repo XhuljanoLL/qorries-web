@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { styles } from '../styles';
 import { navLinks } from '../constants';
@@ -60,7 +60,7 @@ const Navbar = () => {
                 ? 'opacity-100 pointer-events-auto backdrop-blur-2xl bg-black/90' 
                 : 'opacity-0 pointer-events-none backdrop-blur-none bg-transparent'
             }`}
-            // EXIT LOGIC: Clicking anywhere on the background closes the menu
+            // Clicking anywhere on the background closes the menu
             onClick={() => setToggle(false)}
           >
             {/* Close Button */}
@@ -76,7 +76,7 @@ const Navbar = () => {
             {/* Navigation Links */}
             <ul 
               className="list-none flex flex-col gap-10 items-center"
-              // STOP PROPAGATION: Prevents the menu from closing if you click directly on the links list
+              // Prevents the menu from closing if you click directly on the links list
               onClick={(e) => e.stopPropagation()}
             >
               {navLinks.map((nav, index) => (

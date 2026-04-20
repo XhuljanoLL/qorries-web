@@ -42,22 +42,22 @@ VITE_EMAILJS_TO_EMAIL=youremail@gmail.com
 ### Step 3 — Verify locally
 
 ```bash
+npm install
+
 npm run dev
 ```
 
 Fill out the contact form and check your inbox. You should receive a test email.
 
 > **Security:** `.env.local` is already in `.gitignore`. Never commit it.  
-> When deploying (e.g. Netlify / Vercel), add these same variables in your  
-> hosting provider's environment settings panel.
 
 ---
 
-## 2. Social Links **[BLOCKER]**
+## 2. Social Links 
 
 **File:** `src/constants/index.js`
 
-Replace every placeholder URL in the `socialLinks` array with your real profiles:
+Replace every URL in the `socialLinks` array with your real profiles:
 
 ```js
 const socialLinks = [
@@ -73,11 +73,11 @@ const socialLinks = [
 
 ---
 
-## 3. Projects **[BLOCKER]**
+## 3. Projects 
 
 **File:** `src/constants/index.js`
 
-All 5 projects currently point to someone else's GitHub and live demos. Replace them with your own work.
+All 5 projects currently point to someone else's. Replace them with your own work.
 
 For each project in the `projects` array, update:
 
@@ -91,7 +91,7 @@ For each project in the `projects` array, update:
 | `demo`        | Your live demo URL (or `'#'` if not deployed yet) |
 
 **To add a project screenshot:**
-1. Export a screenshot as PNG and drop it in `src/assets/projects/`
+1. Export a screenshot and drop it in `src/assets/projects/`
 2. Open `src/assets/index.js` and add an export:
    ```js
    export { default as myProject } from './projects/my-project.png';
@@ -104,7 +104,7 @@ For each project in the `projects` array, update:
 
 **File:** `src/components/Hero.jsx`
 
-Find the two `<span>` elements around line 65 and change the name:
+Find the two `<span>` elements and change the name:
 
 ```jsx
 <span ...>Genald</span>   {/* ← your first name */}
@@ -117,7 +117,7 @@ Find the two `<span>` elements around line 65 and change the name:
 
 **File:** `src/components/About.jsx`
 
-Replace the placeholder paragraph around line 29 with your own bio:
+Replace the paragraph with your own bio:
 
 ```jsx
 <motion.p ...>
@@ -145,7 +145,7 @@ const services = [
 ```
 
 - Change `title` to describe your skills
-- Swap `Icon` for any icon from [react-icons/hi2](https://react-icons.github.io/react-icons/)
+- Swap `Icon` for any icon of your liking.
 
 ---
 
@@ -155,7 +155,7 @@ const services = [
 - `src/assets/logo/logo-black.png` — circular icon shown in the navbar
 - `src/assets/logo/logo-text-black.png` — text image beside the icon
 
-Replace either PNG with your own file using the **exact same filename**, or update the import in `src/assets/index.js`.
+Replace either PNG with your own file using the **exact same filename**, or update them in `src/assets/index.js`.
 
 > Recommended size for `logo-black.png`: 200×200 px, transparent background.
 
@@ -172,26 +172,18 @@ Replace either PNG with your own file using the **exact same filename**, or upda
 
 - Change the `<title>` to your own name or brand
 - Replace `/logo.png` in `public/` with your own favicon  
-  (PNG ≤ 32×32 px for a favicon; the current file is 121 KB — swap it for a smaller one)
+  (PNG ≤ 32×32 px for a favicon)
 
 ---
 
 ## 9. Hero Background Video
 
-| Device  | File to replace             | Recommended ratio |
-|---------|-----------------------------|-------------------|
-| Desktop | `public/hero-bg.mp4`        | 16:9 landscape    |
-| Mobile  | `public/hero-bg-mobile.mp4` | 9:16 portrait     |
+| Device  | File to replace              | Recommended ratio |
+|---------|------------------------------|-------------------|
+| Desktop | `public/hero-bg.webm`        | 16:9 landscape    |
+| Mobile  | `public/hero-bg-mobile.webm` | 9:16 portrait     |
 
 Drop your MP4 files into `public/` using those exact filenames.  
-The current videos are ~57 MB each — **compress them** before launch:
-
-```bash
-# Example using ffmpeg (install via your package manager)
-ffmpeg -i hero-bg.mp4 -vcodec libx264 -crf 28 -preset slow hero-bg-compressed.mp4
-```
-
-Aim for **under 10 MB** per video. Rename the compressed file to the expected filename.
 
 ---
 
@@ -203,16 +195,9 @@ Replace this with your own grain / texture overlay video, or delete the `<video>
 
 ---
 
-## 11. Project Images — Optimise Before Build
+## 11. Project Images
 
-The current project screenshots are 1–2.5 MB PNG files each. Convert them to WebP before deploying:
-
-```bash
-# Using ffmpeg or cwebp (install cwebp via your package manager)
-cwebp -q 80 my-project.png -o my-project.webp
-```
-
-Then update the imports in `src/assets/index.js` and `src/constants/index.js` to reference the `.webp` files.
+Tpdate the images in `src/assets/index.js` and `src/constants/index.js` to reference the image files.
 
 ---
 
@@ -257,41 +242,76 @@ Open [http://localhost:4173](http://localhost:4173) and manually verify:
 
 ---
 
-## 14. Deploying
-
-When you deploy to **Netlify** or **Vercel**, add your environment variables in the hosting dashboard — **do not commit `.env.local`**.
-
-| Platform | Where to add env vars |
-|----------|----------------------|
-| Netlify  | Site settings → Environment variables |
-| Vercel   | Project settings → Environment Variables |
-
-Add all five `VITE_EMAILJS_*` variables there, then trigger a new deploy.
-
----
-
 ## Quick File Map
 
 ```
-qorries-web/
-├── .env.example              ← template — copy to .env.local and fill in
-├── .env.local                ← YOUR secrets (never commit this)
-├── public/
-│   ├── hero-bg.mp4           ← hero video (desktop 16:9)
-│   ├── hero-bg-mobile.mp4    ← hero video (mobile 9:16)
-│   ├── grain-bg.mp4          ← grain overlay video
-│   └── logo.png              ← favicon / OG image
-├── index.html                ← page title, favicon link, meta tags
-└── src/
-    ├── assets/
-    │   ├── logo/
-    │   │   ├── logo-black.png       ← navbar icon
-    │   │   └── logo-text-black.png  ← navbar text image
-    │   └── projects/                ← project card screenshots
-    ├── components/
-    │   ├── Hero.jsx           ← your first & last name
-    │   ├── About.jsx          ← bio paragraph
-    │   └── Contact.jsx        ← reads credentials from .env.local automatically
-    └── constants/
-        └── index.js           ← nav links, services, projects, social links
+.
+├── CUSTOMIZE.md
+├── README.md
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public
+│   ├── grain-bg.webm
+│   ├── hero-bg-mobile.webm
+│   └── hero-bg.webm
+├── src
+│   ├── App.jsx
+│   ├── assets
+│   │   ├── icons
+│   │   │   ├── close.png
+│   │   │   ├── menu.png
+│   │   │   ├── send.png
+│   │   │   └── sendHover.png
+│   │   ├── index.js
+│   │   ├── logo
+│   │   │   └── logo-black.png
+│   │   ├── projects
+│   │   │   ├── colour-tuneing-svgrepo-com.svg
+│   │   │   ├── director-chair-svgrepo-com.svg
+│   │   │   ├── i_hate_models_2.png
+│   │   │   ├── is_this_who_i_am_2.PNG
+│   │   │   ├── maybe_love.PNG
+│   │   │   ├── mellow_ma-deine_augen.png
+│   │   │   ├── movie-camera-filming-film-svgrepo-com.svg
+│   │   │   ├── taste_bugs.jpeg
+│   │   │   └── video-editing-svgrepo-com.svg
+│   │   └── social
+│   │       ├── behance-outline.svg
+│   │       ├── email-svgrepo-com.svg
+│   │       ├── instagram-outline.svg
+│   │       ├── whatsapp-outline.svg
+│   │       └── youtube-outline.svg
+│   ├── components
+│   │   ├── About.jsx
+│   │   ├── Connect.jsx
+│   │   ├── Contact.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Hero.jsx
+│   │   ├── Loader.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── Projects.jsx
+│   │   ├── canvas
+│   │   │   ├── Ball.jsx
+│   │   │   └── index.js
+│   │   └── index.js
+│   ├── constants
+│   │   └── index.js
+│   ├── fonts
+│   │   ├── arenq.otf
+│   │   ├── beckman.otf
+│   │   ├── mova.otf
+│   │   ├── overcame-bold.woff
+│   │   └── overcame-outline.woff
+│   ├── hoc
+│   │   ├── SectionWrapper.jsx
+│   │   └── index.js
+│   ├── index.css
+│   ├── main.jsx
+│   ├── styles.js
+│   └── utils
+│       └── motion.js
+├── tailwind.config.mjs
+└── vite.config.js
 ```

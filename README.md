@@ -1,4 +1,4 @@
-# Qorries Web
+# Qorri's Web
 
 A personal portfolio site built with React, Three.js, Framer Motion, and TailwindCSS.
 
@@ -46,7 +46,3 @@ npm run preview
 ## Customization
 
 See [CUSTOMIZE.md](./CUSTOMIZE.md) for a full guide on changing content, images, videos, and links.
-
-## License
-
-MIT — based on [Portfolio-Template](https://github.com/shaqdeff/Portfolio-Template) by Shaquille Ndunda. See [MIT.md](./MIT.md) for the full license text.

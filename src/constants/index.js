@@ -14,9 +14,6 @@ import {
   movie_camera,
   email
 } from '../assets';
-// import {
-//   HiOutlineVideoCamera,
-// } from 'react-icons/hi2';
 
 export const navLinks = [
   {
@@ -84,7 +81,7 @@ const projects = [
   {
     id: 'project-1',
     name: 'taste_bugs',
-    // description: 'A comic characters list app that displays Marvel characters.',
+    // description: '',
     tags: [
       {
         name: 'taste_bugs',
@@ -105,8 +102,7 @@ const projects = [
   {
     id: 'project-2',
     name: 'maybe_love',
-    // description:
-    //   'A leaderboard list app that displays scores submitted by different players.',
+    // description: '',
     tags: [
       {
         name: 'maybe_love',
@@ -127,7 +123,7 @@ const projects = [
   {
     id: 'project-3',
     name: 'is_this_who_i_am',
-    // description: 'This is a single-page calculator app built with React',
+    // description: '',
     tags: [
       {
         name: 'is_this_who_i_am',
@@ -148,7 +144,7 @@ const projects = [
   {
     id: 'project-4',
     name: 'deine_augen',
-    // description: `A single-page application that allows users to search for any movie or show's ratings and its details.`,
+    // description: ``,
     tags: [
       {
         name: 'videoclip',
@@ -170,7 +166,7 @@ const projects = [
     id: 'project-5',
     name: 'i_hate_models',
     // description:
-    //   'This is a demo concert website for a music festival called Nyeusi.',
+    //   '',
     tags: [
       {
         name: 'i_hate_models',

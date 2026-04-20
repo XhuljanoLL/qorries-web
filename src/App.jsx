@@ -5,7 +5,7 @@ import {
   Footer,
   Hero,
   Navbar,
-  Tech,
+  Connect,
   Projects,
 } from './components';
 
@@ -54,7 +54,7 @@ const App = () => {
 
             {/* H2 for Tech section */}
             <h2 className="sr-only">Tech</h2>
-            <Tech />
+            <Connect />
 
             {/* H2 for Contact section */}
             <h2 className="sr-only">Contact</h2>

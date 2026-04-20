@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { styles } from '../styles';
@@ -23,14 +23,13 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // 1. Check for empty fields
+    // Check for empty fields
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
       alert("Please fill in all fields.");
       return;
     }
 
-    // 2. EMAIL FORMAT VALIDATION (The Regex)
-    // This checks for: characters + @ + characters + . + characters
+    // Check for: characters + @ + characters + . + characters
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(form.email)) {
       alert("Please enter a valid email address (e.g., name@example.com).");
@@ -45,7 +44,7 @@ const Contact = () => {
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           name: form.name,
-          email: form.email, // This fills {{email}} in your template
+          email: form.email,
           message: form.message,
           to_name: import.meta.env.VITE_EMAILJS_TO_NAME,
           to_email: import.meta.env.VITE_EMAILJS_TO_EMAIL,
@@ -94,7 +93,7 @@ const Contact = () => {
             />
           </label>
 
-          {/* Email Field with built-in HTML5 type="email" */}
+          {/* Email Field */}
           <label className="flex flex-col">
             <span className="text-timberWolf font-medium mb-4">Your Email</span>
             <input

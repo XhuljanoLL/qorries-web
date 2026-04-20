@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
 import { services } from '../constants';
 import { fadeIn, textVariant } from '../utils/motion';
 import { SectionWrapper } from '../hoc';
 
-/**
- * Sparkle Component
- * Creates the classic 80s-style 4-pointed star twinkle.
- */
+/*Sparkle Component*/
 const Sparkle = ({ delay, left, top, size }) => (
   <motion.div
     className="absolute pointer-events-none"
